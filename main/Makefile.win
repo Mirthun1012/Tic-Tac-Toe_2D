@@ -1,0 +1,31 @@
+# Project: Tic Tac Toe_2d
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = ../files/main.o ../files/box.o
+LINKOBJ  = ../files/main.o ../files/box.o
+LIBS     = -L"E:/mirthun file/Compiler/Dev-Cpp/MinGW64/lib" -L"E:/mirthun file/Compiler/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -L"E:/mirthun file/Compiler/Dev-Cpp/SFML-2.4.2/lib" -static-libgcc -lsfml-graphics -lsfml-window -lsfml-audio -lsfml-system -lopengl32
+INCS     = -I"E:/mirthun file/Compiler/Dev-Cpp/MinGW64/include" -I"E:/mirthun file/Compiler/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"E:/mirthun file/Compiler/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"E:/mirthun file/Compiler/Dev-Cpp/MinGW64/include" -I"E:/mirthun file/Compiler/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"E:/mirthun file/Compiler/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"E:/mirthun file/Compiler/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++" -I"E:/mirthun file/Compiler/Dev-Cpp/SFML-2.4.2/include"
+BIN      = "../Application/Tic Tac Toe_2d.exe"
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+../files/main.o: ../files/main.cpp
+	$(CPP) -c ../files/main.cpp -o ../files/main.o $(CXXFLAGS)
+
+../files/box.o: ../files/box.cpp
+	$(CPP) -c ../files/box.cpp -o ../files/box.o $(CXXFLAGS)
